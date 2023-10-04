@@ -26,6 +26,7 @@
   // arguments running the container name and network are set. change the network according to your Alfresco installation
   //"runArgs": ["--network=alfresco"],
   // editor configuration
+  "postCreateCommand": "npm install",
   "customizations": {
     "vscode": {
       "settings": {
