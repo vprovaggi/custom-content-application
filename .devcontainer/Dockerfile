@@ -7,7 +7,11 @@ FROM node:${NODE_VERSION}
 ARG ANGULAR_VERSION=14.1.3
 ARG NX_VERSION=14.2.1
 
-RUN apt-get update && apt-get install gnupg2 -y
+# needed to update to a version of git >2.34 for SSH sign commits
+RUN echo "deb http://deb.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list.d/bullseye-backports.list \
+&& apt-get update \
+&& apt-get -t bullseye-backports install git -y
+RUN apt-get install gnupg2 -y
 
 USER node
 

@@ -3,7 +3,7 @@
     "dockerfile": "Dockerfile",
     "args": {
       "ANGULAR_VERSION": "14.2.11",
-      "NODE_VERSION": "18-bullseye",
+      "NODE_VERSION": "18.18-bullseye",
       "NX_VERSION": "16.3.2"
     }
   },
@@ -15,7 +15,7 @@
     },
     "./nx-workspace": {
       "workspaceFolder": "${containerWorkspaceFolder}"
-    },
+    }
   },
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:~/.npm-global/bin"
@@ -51,7 +51,8 @@
 		"stylelint.vscode-stylelint",
 		"eamodio.gitlens",
 		"streetsidesoftware.code-spell-checker",
-		"Angular.ng-template"
+		"Angular.ng-template",
+		"mutantdino.resourcemonitor"
 	]
     }
   }
