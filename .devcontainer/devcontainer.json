@@ -1,0 +1,58 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "ANGULAR_VERSION": "14.2.11",
+      "NODE_VERSION": "18-bullseye",
+      "NX_VERSION": "16.3.2"
+    }
+  },
+  "name": "Custom Content Application",
+  "remoteUser": "node",
+  "features": {
+    "./angular-workspace": {
+      "workspaceFolder": "${containerWorkspaceFolder}"
+    },
+    "./nx-workspace": {
+      "workspaceFolder": "${containerWorkspaceFolder}"
+    },
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:~/.npm-global/bin"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=${containerWorkspaceFolder},type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopContainer",
+  // arguments running the container name and network are set. change the network according to your Alfresco installation
+  //"runArgs": ["--network=alfresco"],
+  // editor configuration
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.fontLigatures": "'calt','ss01'",
+        "workbench.colorTheme": "GitHub Dark Default",
+        "files.autoSave": "onFocusChange",
+        "editor.fontFamily": "'Cascadia Code',Menlo, Monaco, 'Courier New', monospace",
+        "editor.formatOnSave": true,
+        "prettier.singleQuote": true,
+        "editor.stickyScroll.enabled": true,
+        "workbench.sideBar.location": "right",
+        "editor.minimap.enabled": false
+      },
+      "extensions": [
+		"dbaeumer.vscode-eslint",
+		"GitHub.github-vscode-theme",
+		"esbenp.prettier-vscode",
+		"yzhang.markdown-all-in-one",
+		"firsttris.vscode-jest-runner",
+		"EditorConfig.EditorConfig",
+		"DavidAnson.vscode-markdownlint",
+		"nrwl.angular-console",
+		"stylelint.vscode-stylelint",
+		"eamodio.gitlens",
+		"streetsidesoftware.code-spell-checker",
+		"Angular.ng-template"
+	]
+    }
+  }
+}
